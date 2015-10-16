@@ -128,3 +128,5 @@
 [user]
 	name = Diego Roque
 	email = droque@mit.edu
+[init]
+	templatedir = ~/.git

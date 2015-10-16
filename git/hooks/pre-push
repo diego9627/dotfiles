@@ -1,0 +1,3 @@
+#!/bin/bash
+afplay .git/hooks/witness.mov &
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+# TODO: Make it a function accepting machine, instead of this
+machine=default 
+# MAGIC:
+# -f : Background
+# -n : stdin from /dev/null
+# -N : don't execute a command
+# -i : Identity
+ssh -f -nNT -i ~/.docker/machine/machines/$machine/id_rsa docker@$(docker-machine ip $machine) -L 8080:localhost:8080
+

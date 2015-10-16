@@ -121,12 +121,23 @@ so ~/.yadr/vim/settings.vim
 vmap <C-x> :!pbcopy<CR>  
 vmap <C-c> :w !pbcopy<CR><CR> 
 
+" For some reason, vim-hdevtools needs this.
 execute pathogen#infect()
 
+" Tagbar with F8
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
 
+" hdevtools support
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+
+autocmd BufEnter *.hs set formatprg=xargs\ pointfree
+
+" vim-slime
+let g:slime_target = "tmux"
+let g:slime_paste_file = tempname()
 
 " Reload
 map <silent> tu :call GHC_BrowseAll()<CR>
